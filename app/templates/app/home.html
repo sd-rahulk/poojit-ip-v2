@@ -1,0 +1,272 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Mohammed School</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="nav">
+    <ul class="holder">
+        <span class="img"><img src="{% static 'images/MOHAMMED SCHOL.png' %}" alt="" srcset=""></span>
+        <li><a href="/">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        {% if authenticated %}
+            <li><a href="{% url 'profile'%}">My Profile</a></li>
+            {% endif %}
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'alumni' %}">Alumni</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/events/">Events</a></li>
+        <li><a href="/faq">FAQ</a></li>
+    </ul>
+  </div>
+  {% if not authenticated %}
+  <div class="button1">
+    <button id="log">Log in</button>
+    <button id="up">Sign up</button>
+  </div>
+  {% else %}
+  <div class="button1">
+    <button id="logout" onclick="window.location.href='/logout/'" id="logout">Log out</button>
+
+  </div>
+  {% endif %}
+
+  <div class="msg">
+    <p class="head">WELCOME!</p>
+    <p class="content">The Mohammed School wholeheartedly brought this Website for Our Students Growth and Development.. 
+        Making our Students To Gain and Apply the Knowledge learnt is the Main focus for us.. 
+        Stay connected with your alma mater and fellow alumni through the Mohammed School Alumni Network. Join us to rekindle friendships, share memories, and contribute to the vibrant legacy of Mohammed School. Whether you're looking to reconnect, mentor current students, or participate in events, our platform is here to foster lifelong bonds and support our thriving community. Welcome back home!
+    </p>
+  </div>
+  <div class="home">
+    <span class="img1">
+        <img src="{% static 'images/nature.png' %}" alt="">
+    </span>
+  </div>
+  <div class="form">
+    <div class="pop1" style="display:none;">
+        <p>Full Name:</p>
+        <input type="text" id="signup-fullname">
+        <p>Admission No:</p>
+        <input type="number" id="signup-admission-no">
+        <p>Email Id:</p>
+        <input type="email" id="signup-email">
+        <p>Create Your Password:</p>
+        <input type="password" id="signup-password">
+        <p>Confirm Your Password:</p>
+        <input type="password" id="signup-confirm-password">
+        <button class="Submit">Submit</button>
+        <span id="close">
+            <img src="{% static 'images/close-button.png' %}" alt="">
+        </span>
+    </div>
+</div>
+
+    
+  </div>
+  <div id="form2" class="login-popup">
+    <img src="{% static 'images/user.png' %}" alt="" class="login">
+    <form id="login-form">
+        <p>username:</p>
+        <input type="text" id="login-email" name="username">
+        <p>Password:</p>
+        <input type="password" id="login-password" name="password">
+        <button type="submit" class="submit2">Login</button>
+    </form>
+    <span id="close2" class="close-btn">
+        <img class="close3" src="{% static 'images/close-button.png' %}" alt="">
+    </span>
+</div>
+
+<script src="{% static 'js/Script.js' %}"></script>
+<style>
+  body{
+    border: none;
+    padding: none;
+    margin:0px;
+    background:linear-gradient(to bottom, #F7F7F7, #E8F9FD, #F6F1EE,  #ffaa80b6) ;
+  background-image: url("{% static 'images/Ms.png' %}");
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Check if this cookie contains the specified name
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                // Extract and return the cookie value
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+    // Get the login button
+    var loginBtn = document.getElementById("log");
+
+    // Get the login popup
+    var loginPopup = document.querySelector(".login-popup");
+
+    // Get the close button inside the login popup
+    var closeBtn = loginPopup.querySelector(".close-btn");
+
+    // Show the login popup when the login button is clicked
+    loginBtn.addEventListener("click", function() {
+        loginPopup.style.display = "block";
+    });
+
+    // Hide the login popup when the close button is clicked
+    closeBtn.addEventListener("click", function() {
+        loginPopup.style.display = "none";
+    });
+
+    // Handle form submission
+    var loginForm = document.getElementById("login-form");
+    loginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        // Get the username and password values
+        var email = document.getElementById("login-email").value;
+    var password = document.getElementById("login-password").value;
+
+    var csrftoken = getCookie('csrftoken'); // Function to retrieve CSRF token from cookies
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/login/", true);
+xhr.setRequestHeader("X-CSRFToken", csrftoken);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log("Login successful");
+                    window.location.reload();
+                    // Redirect the user to a new page or perform other actions
+                } else {
+                    console.error("Login failed:", response.error);
+                    // Display an error message to the user
+                }
+            } else {
+                console.error("Error:", xhr.status);
+                // Display an error message to the user
+            }
+        }
+    };
+    xhr.send(JSON.stringify({username: email, password: password}));
+
+
+        // Clear the form fields
+        loginForm.reset();
+
+        // Close the login popup
+        loginPopup.style.display = "none";
+    });
+});
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+    // Function to get CSRF token from cookies
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Show signup popup
+    var signupBtn = document.getElementById("up");
+    var signupPopup = document.querySelector(".pop1");
+    var closeBtn = document.getElementById("close");
+
+    signupBtn.addEventListener("click", function() {
+        signupPopup.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", function() {
+        signupPopup.style.display = "none";
+    });
+
+    // Handle signup form submission
+    var signupBtn = document.getElementById("up");
+    var signupPopup = document.querySelector(".pop1");
+    var closeBtn = document.getElementById("close");
+
+    signupBtn.addEventListener("click", function() {
+        signupPopup.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", function() {
+        signupPopup.style.display = "none";
+    });
+
+    var signupFormBtn = document.querySelector(".Submit");
+    signupFormBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var fullname = document.getElementById("signup-fullname").value;
+        var admissionNo = document.getElementById("signup-admission-no").value;
+        var email = document.getElementById("signup-email").value;
+        var password = document.getElementById("signup-password").value;
+        var confirmPassword = document.getElementById("signup-confirm-password").value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        var csrftoken = getCookie('csrftoken');
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/signup/", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        console.log("Signup successful");
+                        localStorage.setItem('fullname', fullname);
+                        localStorage.setItem('admission_no', admissionNo);
+                        location.reload();
+                    } else {
+                        console.error("Signup failed:", response.error);
+                        alert("Signup failed: " + response.error);
+                    }
+                } else {
+                    console.error("Error:", xhr.status);
+                    alert("Error: " + xhr.status);
+                }
+            }
+        };
+
+        var formData = {
+            fullname: fullname,
+            admission_no: admissionNo,
+            email: email,
+            password: password
+        };
+        xhr.send(JSON.stringify(formData));
+    });
+});
+
+</script>
+</body>
+</html>

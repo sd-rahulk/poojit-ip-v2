@@ -1,0 +1,57 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Create Your Profile</title>
+    <link rel="stylesheet" href="{% static 'css/About.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <ul class="holder">
+            <span class="img"><img src="{% static 'images/MOHAMMED SCHOL.png' %}" alt="" srcset=""></span>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a class="abt" href="{% url 'about' %}">About Us</a></li>
+            <li><a href="/profile">My Profile</a></li>
+            <li><a href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'alumni' %}">Alumni</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/faq">FAQ</a></li>
+        </ul>
+    </div>
+    <div class="hero">
+        <div class="container">
+            <p class="head"><span>About Us</span> - Mohammed School</p>
+            <br><br>
+            <p class="content">
+                Mohammed School has been a pillar of education for 4 years, serving the Students since 2007. We are dedicated to providing a nurturing and stimulating learning environment that fosters academic excellence, personal growth, and a strong sense of community.
+                <br><br>
+                <span>Our Mission</span>
+                <br><br>
+                To empower students to become critical thinkers, effective communicators, and responsible global citizens.
+                To cultivate a love of learning and a lifelong pursuit of knowledge.
+                To instill Islamic values and ethics, promoting respect, compassion, and service to others. (Optional: Add a specific mission statement if your school has one)
+                Our Legacy
+                Mohammed School has a rich history of graduating well-rounded individuals who have made significant contributions to their communities and the world. Our alumni network is a testament to the quality education we provide and the lasting impact we have on our students' lives.
+                <br><br>
+                <span>Our Commitment to You</span>
+                <br><br>
+                This alumni website is dedicated to reconnecting you with your classmates, teachers, and the Mohammed School community. Here, you can:
+                Update your contact information
+                Browse alumni profiles and directories
+                Read about school news and events
+                Network with fellow alumni
+                Give back to your alma mater
+                We are excited to have you join our online community and stay connected with Mohammed School!
+                <br><br>
+                With a global presence of over hundreds of alumni across diverse industries, our network boasts a wealth of knowledge and experience. As a member, you'll gain access to exclusive events, career resources, and mentorship programs designed to help you thrive both personally and professionally.
+                We are a dedicated team of staff and passionate alumni volunteers committed to building a strong and supportive network for all Mohammed School graduates. We invite you to explore the many benefits of membership and re-connect with your Mohammed School family.
+                <br><br>
+            </p>
+        </div>
+        <div class="pictures">
+            <img class="p" src="{% static 'images/know.png' %}" alt="">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Admission Number:</strong> <span id="admissionNumber"></span></p>
+    <!-- Display other profile fields as needed -->
+    <script>
+var admissionNumber = localStorage.getItem('admission_no');
+
+// Check if the admission number exists in local storage
+if (admissionNumber) {
+    // Display the admission number on the HTML page
+    document.getElementById('admissionNumber').textContent = admissionNumber;
+} else {
+    // Handle case where admission number is not found in local storage
+    document.getElementById('admissionNumber').textContent = 'Not available';
+}
+    </script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.profile-info strong {
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-info span {
+    color: #333;
+}
+
+    </style>
+</body>
+</html>

@@ -1,0 +1,82 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Gallery</title>
+    <link rel="stylesheet" href="{% static 'css/photos.css' %}">
+</head>
+<body>
+    
+    <div class="nav">
+        <ul class="holder">
+            <span class="img"><img src="{% static 'images/MOHAMMED SCHOL.png' %}" alt="" srcset=""></span>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a class="Gallery" href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'alumni' %}">Alumni</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <p class="head">GALLERY</p>
+        
+        <div class="container">
+          <span data-img-index="0"><img id="a" src="{% static './images/no1.jpg' %}" alt="">
+              <div class="Annual1"><p class="text">Annual Day</p></div>
+          </span>  
+          <span data-img-index="1"><img id="b" src="{% static './images/no2.jpg' %}" alt="">
+              <div class="Earth"><p class="text">Earth Day</p></div>
+          </span>  
+          <span data-img-index="2"><img id="c" src="{% static './images/no3.jpg' %}" alt="">
+              <div class=""><p class="text">Annual Day</p></div>
+          </span>  
+          <span data-img-index="3"><img id="d" src="{% static './images/no4.jpg' %}" alt="">
+              <div class=""><p class="text">Annual Day</p></div>
+          </span> 
+          <span data-img-index="4"><img id="e" src="{% static './images/no5.jpeg' %}" alt="">
+              <div class=""><p class="text">Annual Day</p></div>
+          </span> 
+          <span data-img-index="5"><img id="f" src="{% static './images/no6.jpg' %}" alt="">
+              <div class=""><p class="text">Annual Day</p></div>
+          </span>
+      </div>
+        <div class="bg"></div>
+        <div class="slide">
+            <span id="close">
+                <img src="{% static 'images/close-button.png' %}" alt="">
+            </span>
+        </div>
+    </div>
+    <script>
+      const imageUrls = [
+    "{% static './images/no1.jpg' %}",
+    "{% static './images/no2.jpg' %}",
+    "{% static './images/no3.jpg' %}",
+    "{% static './images/no4.jpg' %}",
+    "{% static './images/no5.jpeg' %}",
+    "{% static './images/no6.jpg' %}"
+];
+
+const vars = document.querySelectorAll("[data-img-index]");
+
+vars.forEach((element, index) => {
+    element.addEventListener('click', function() {
+        const imgUrl = imageUrls[index];
+        document.querySelector(".slide").style.backgroundImage = `url(${imgUrl})`;
+        document.querySelector(".slide").style.display = "block";
+        document.querySelector(".bg").style.display = "block";
+    });
+});
+
+document.getElementById("close").addEventListener('click', function() {
+    document.querySelector(".slide").style.display = "none";
+    document.querySelector(".bg").style.display = "none";
+    document.querySelector('body').style.overflowY = 'auto';
+});
+
+    </script>
+</body>
+</html>

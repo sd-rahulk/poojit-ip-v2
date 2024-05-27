@@ -1,0 +1,126 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Alumni</title>
+    <link rel="stylesheet" href="{% static './css/aluminiui.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <ul class="holder">
+            <span class="img"><img src="{% static './images/MOHAMMED SCHOL.png' %}" alt="" srcset=""></span>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="/profile">My Profile</a></li>
+            <li><a class="Gallery" href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'alumni' %}">Alumni</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </div>
+    <div class="bar">
+        <div>
+            <p class="head1">Alumni</p>
+        </div>
+        <p class="head">Search</p>
+        <input type="text" class="search" placeholder="Find Your Alumni">
+    </div>
+    <div class="holder2">
+        {% for user in users %}
+        <div class="card">
+            <img src="{% static 'images/default_icon.jpg' %}" alt="Default Icon" class="profile-img">
+            <div class="card-content">
+                <p class="name"><strong>Name:</strong> {{ user.username }}</p>
+                <p class="email"><strong>Email:</strong> {{ user.email }}</p>
+                <!-- You can add more user details here -->
+            </div>
+        </div>
+        {% endfor %}
+        <div class="no-results" style="display: none;">
+            No results found
+        </div>
+        
+    </div>
+    <style>
+        .card {
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.name,
+.email {
+    margin-bottom: 10px;
+}
+
+.name strong,
+.email strong {
+    font-weight: bold;
+}
+
+/* Add more styling as needed */
+
+    </style>
+    <script>
+        // Get the search input element
+// Get the search input element
+var searchInput = document.querySelector('.search');
+
+// Get all alumni cards
+var alumniCards = document.querySelectorAll('.card');
+
+// Get the "No results found" message element
+var noResultsMessage = document.querySelector('.no-results');
+
+// Add event listener to the search input for keyup event
+searchInput.addEventListener('keyup', function() {
+    // Get the search query from the input
+    var query = searchInput.value.toLowerCase().trim();
+
+    // Variable to track if any matching alumni are found
+    var foundMatch = false;
+
+    // Loop through all alumni cards
+    alumniCards.forEach(function(card) {
+        // Get the name and email elements from the card
+        var name = card.querySelector('.name').textContent.toLowerCase();
+        var email = card.querySelector('.email').textContent.toLowerCase();
+
+        // Check if the name or email contains the search query
+        if (name.includes(query) || email.includes(query)) {
+            // If found, display the card
+            card.style.display = 'block';
+            foundMatch = true;
+        } else {
+            // If not found, hide the card
+            card.style.display = 'none';
+        }
+    });
+
+    // Show or hide the "No results found" message based on search results
+    if (foundMatch) {
+        noResultsMessage.style.display = 'none'; // Hide message if results found
+    } else {
+        noResultsMessage.style.display = 'block'; // Show message if no results found
+    }
+});
+
+
+    </script>
+</body>
+</html>

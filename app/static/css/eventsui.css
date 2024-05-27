@@ -1,0 +1,59 @@
+body{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(to bottom, #FFAA80);
+}
+a{
+    text-decoration: none;
+    color: #1F1717;
+    transition: 0.3s;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+.holder{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 220px;
+    height: 128%;
+    background-color: #FFAA80;
+    border: none;
+    margin: 0px;
+}
+.holder li{
+    padding: 60px 0px 0px 40px;
+}
+.holder img{
+width:170px ;
+padding-left: 20px;
+}
+a:hover{
+font-size: xx-large;
+color: white;
+transition: 0.2s;
+}
+/* eventsui.css */
+
+.blog-summary {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.blog-summary h2 {
+    font-size: 24px;
+}
+
+.blog-summary p {
+    font-size: 16px;
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}

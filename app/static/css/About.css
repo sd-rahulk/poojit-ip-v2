@@ -1,0 +1,156 @@
+body{
+    margin: 0px;
+    border: 0px;
+    background:repeating-linear-gradient(to right, #FFF4F4, #F9FBE7);
+
+}
+a{
+    text-decoration: none;
+    color: #1F1717;
+    transition: 0.3s;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+.holder{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 220px;
+    height: 100%;
+    background-color: #FFAA80;
+    border: none;
+    margin: 0px;
+}
+.holder li{
+    padding: 60px 0px 0px 40px;
+}
+.holder img{
+width:170px ;
+padding-left: 20px;
+}
+a:hover{
+font-size: xx-large;
+color: white;
+transition: 0.2s;
+}
+.img1{
+    position: absolute;
+    top:380px;
+    left: 640px;
+}
+.img1 img{
+     width: 70px;
+     height: 70px;
+}
+.abt{
+    font-size: large;
+    color: white;
+    text-decoration: underline;
+}
+.container{
+    width: 1000px;
+    height: 95%;
+    /* background: linear-gradient(to bottom, #EBE3D5,#f8bd8d); */
+    position: absolute;
+    top: 30px;
+    left: 470px;
+    
+    /* From https://css.glass */
+/* From https://css.glass */
+
+}
+.head{
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 30px;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.head span{
+    font-weight: bold;
+}
+.content span{
+    font-weight: bold;
+}
+.content{
+    font-size: 19px;
+    margin-left: 5px;
+}
+/* .img1{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 590px;
+    left: 110px;
+    border-radius: 20px;
+}
+.img2{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 60px;
+    left: 350px;
+    border-radius: 30px;
+}
+.img3{
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    top: 310px;
+    left: 480px;
+    border-radius: 20px;
+}
+.img4{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:500px;
+    left: 400px;
+    border-radius: 20px;
+}
+.img5{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:750px;
+    left: 550px;
+    border-radius: 20px;
+}
+.img6{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:250px;
+    left: 750px;
+    border-radius: 20px;
+} */
+/* .pictures{
+    width: 100px;
+    height: 95%;
+    box-shadow: 5px 2px black;
+    position: absolute;
+    top:30px;
+    left: 300px;
+} */
+.p{
+    width:380px;
+    height:820px;
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    border-radius: 40px;
+}
+.pictures img{
+    position: absolute;
+}
+.hero{
+    position: absolute;
+    width: 80%;
+    height: 95%;
+    box-shadow: 10px 5px 20px 10px #F6F1EE;
+    top: 20px;
+    left: 300px;
+    background: repeating-linear-gradient(to bottom, #FFA559, #FFE6C7);
+    border-radius: 40px;
+}

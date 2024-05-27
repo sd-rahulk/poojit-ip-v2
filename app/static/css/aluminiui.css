@@ -1,0 +1,87 @@
+body{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(to bottom, #FFAA80);
+}
+a{
+    text-decoration: none;
+    color: #1F1717;
+    transition: 0.3s;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+.holder{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 220px;
+    height: 128%;
+    background-color: #FFAA80;
+    border: none;
+    margin: 0px;
+}
+.holder li{
+    padding: 60px 0px 0px 40px;
+}
+.holder img{
+width:170px ;
+padding-left: 20px;
+}
+a:hover{
+font-size: xx-large;
+color: white;
+transition: 0.2s;
+}
+.search{
+    position: absolute;
+    right: 300px;
+    top: 150px;
+    width: 1000px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.head{
+    position: absolute;
+    top: 150px;
+    left: 520px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+.head1{
+    position: absolute;
+    top: 60px;
+    left: 1020px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+.holder2{
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 400px 400px;
+    gap: 30px;
+    position: absolute;
+    top: 350px;
+    left: 530px;
+}
+.card{
+    
+    width: 300px;
+    height: 400px;
+    background-color: #F1717f;
+    border-radius: 50px;
+}
+.card:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 5px #1F1717;
+    transition: 0.3ms;
+}
+.search::placeholder{
+    color: #40514E;
+    padding: 4px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}

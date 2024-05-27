@@ -1,0 +1,199 @@
+body{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+    color: #1F1717;
+    transition: 0.3s;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+.holder{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 220px;
+    height: 128%;
+    background-color: #FFAA80;
+    border: none;
+    margin: 0px;
+}
+.holder li{
+    padding: 60px 0px 0px 40px;
+}
+.holder img{
+width:170px ;
+padding-left: 20px;
+}
+a:hover{
+font-size: xx-large;
+color: white;
+transition: 0.2s;
+}
+.Gallery{
+    font-size: large;
+    color: white;
+    text-decoration: underline;
+}
+.head{
+    font-size: 20px;
+    text-decoration: underline;
+    color: black;
+    position: absolute;
+    top: 30px;
+    left: 990px;
+}
+.container{
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+    position: absolute;
+    top: 150px;
+    left: 400px; 
+    /* width: 700px;
+    height: 800px; */
+    gap: 10px;
+}
+.container img{
+ margin-top: 20px;
+ 
+}
+
+#a{
+    width: 800px;
+    height: 500px;
+}
+#b{
+    width: 500px;
+    height: 500px;
+}
+#c{
+    width: 700px;
+    height: 500px;
+}
+#d{
+    position: relative;
+    right: 100px;
+    
+    width: 300px;
+    height: 200px;
+}
+#e{
+    position: absolute;
+    width: 450px;
+    height: 250px;
+    right: 330px;
+    top: 780px;
+    
+}
+#f{
+    position: absolute;
+    bottom: 320px;
+    right: 80px;
+    margin-right: 100px;
+    width: 300px;
+    height: 200px;
+}
+.container img:hover{
+    transition: 2s;
+    box-shadow:5px 5px 5px 5px #1F1717;
+    transform: scale();
+    cursor: pointer;
+    
+}
+/* .container .s1,.s2, .s3, .s4, .s5, .s6{     
+    width: 1000px;
+    height: 800px;
+
+} */
+.slide{
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    width: 80%;
+    height: 93%;
+    
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 140%;
+    background-color: #1F1717;
+    opacity:0.78;
+}
+#close img{
+    position: absolute;
+    left: -30;
+    top:-30px;
+    width:30px;
+    height: 30px;
+    border-radius: 100px;
+}
+#close img:hover{
+    cursor: pointer;
+}
+.container p{
+    text-align: center;
+    margin: 0px;
+    
+}
+.project{
+    position: absolute;
+    bottom: 520px;
+    left:1170px;
+    
+}
+.sport{
+    position: absolute;
+    right: 620px;
+    top: 550px;
+}
+.yoga{
+    position: absolute;
+    bottom: 290px;
+    left: 890px;
+}
+.run{
+    position: absolute;
+    top: 550px;
+    left: 290px;
+}
+.Annual1{
+    width: 800px;
+    height: 500px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    text-align: center;
+    
+    opacity: 0;
+    
+}
+.Annual1:hover{
+    transition: 1s;
+    background-color: rgba(163,161,161, 0.5);
+    opacity: 1;
+    cursor: pointer;
+}
+.text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    
+}
+.Annual1:hover .text{
+   
+    opacity: 1;
+    cursor: pointer;
+}

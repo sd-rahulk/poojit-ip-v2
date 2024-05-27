@@ -1,0 +1,126 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <link rel="stylesheet" href="{% static 'css/eventsui.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <ul class="holder">
+            <span class="img"><img src="{% static 'images/MOHAMMED SCHOL.png' %}" alt="" srcset=""></span>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a class="Gallery" href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="#">Alumni</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </div>
+    <ul>
+        {% for blog_post in blog_posts %}
+          <li>
+            <a href="{% url 'blog_detail' blog_post.pk %}" class="blog-title">{{ blog_post.title }}</a>
+            <div class="expand">
+              <p class="blog-content">{{ blog_post.content }}</p>
+              <form method="post" action="{% url 'add_comment' blog_post.pk %}" class="comments-container">
+                {% csrf_token %}
+                <textarea name="text" placeholder="Add a comment"></textarea><br>
+                <input type="submit" value="Add Comment">
+              </form>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <style>
+        /* Side Navigation Bar */
+/* Side Navigation Bar */
+.sidenav {
+  height: 100%;
+  width: 250px; /* Adjust width as needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  padding-top: 60px; /* Adjust top padding to avoid overlapping with top navigation bar */
+}
+
+.sidenav a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  background-color: #555;
+}
+
+/* Main Content */
+.main {
+  margin-left: 250px; /* Adjust margin to match the width of the side navigation bar */
+  padding: 20px;
+  padding-left: 270px; /* Add extra padding to accommodate the side navigation bar */
+}
+
+
+/* Blog Post */
+.blog-post {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.blog-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.blog-title:hover {
+  color: #555;
+}
+
+.blog-content {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Comment Form */
+.comments-container textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.comments-container input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.comments-container input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Aligning Blog Posts */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 20px;
+}
+
+      </style>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ blog_post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/eventsui.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <ul class="holder">
+            <span class="img"><img src="{% static 'MOHAMMED SCHOL.png' %}" alt="" srcset=""></span>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a class="Gallery" href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="#">Alumni</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </div>
+    <h2>{{ blog_post.title }}</h2>
+    <p>{{ blog_post.content }}</p>
+    
+    <h3>Comments</h3>
+    <ul class="comments-container">
+      {% for comment in blog_post.comments.all %}
+        <li class="comment-content">{{ comment.content }} - {{ comment.author }}</li>
+      {% empty %}
+        <li>No comments yet.</li>
+      {% endfor %}
+    </ul>
+    <style>
+      .blog-post {
+  margin-bottom: 30px;
+}
+
+.blog-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.blog-content {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Comments */
+.comments-container {
+  padding: 20px;
+}
+
+.comment {
+  margin-bottom: 15px;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #333;
+}
+
+.comment-content {
+  margin-left: 20px;
+  color: #666;
+}
+    </style>
+</body>
+</html>
